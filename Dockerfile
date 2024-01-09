@@ -1,5 +1,5 @@
 FROM python:3.9-alpine3.14 as base
-RUN apk update && apk add --no-cache ffmpeg libxslt-dev libxml2-dev
+RUN apk update && apk add --no-cache vlc ffmpeg libxslt-dev libxml2-dev
 
 FROM base as builder
 ARG VERSION
