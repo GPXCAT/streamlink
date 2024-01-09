@@ -12,7 +12,8 @@ docker buildx build --build-arg VERSION=6.5.0 --platform linux/amd64,linux/arm64
 ```bash
 docker run --rm -it \
     -v $(pwd):/app -w /app \
-    jscat/streamlink https://abema.tv/video/episode/26-162_s3_p2 best
+    jscat/streamlink -o abema.ts \
+    https://abema.tv/video/episode/26-162_s3_p2 best
 ```
 
 # install docker

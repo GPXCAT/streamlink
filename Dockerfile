@@ -7,8 +7,11 @@ RUN apk add --no-cache --virtual .build-deps gcc musl-dev
 RUN pip wheel --wheel-dir=/root/wheels streamlink==$VERSION
 
 FROM base
-
 COPY --from=builder /root/wheels /root/wheels
 RUN pip install --no-index --find-links=/root/wheels streamlink
 
+ARG USERNAME=streamlink
+RUN adduser -D $USERNAME
+
+USER $USERNAME
 ENTRYPOINT ["/usr/local/bin/streamlink"]
